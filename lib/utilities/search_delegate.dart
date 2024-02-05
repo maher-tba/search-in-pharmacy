@@ -49,12 +49,14 @@ class ProductsSearchDelegate extends SearchDelegate<dynamic> {
         ? const SizedBox.shrink()
         : Column(
             children: [
-              ListTile(
-                title: Text(
-                  'Results: ${results.length}',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+              AppBar(
+                automaticallyImplyLeading: false,
+                title: ListTile(
+                  title: Text(
+                    'Results: ${results.length}',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
-                visualDensity: VisualDensity.compact,
               ),
               Expanded(
                 child: ListView.builder(
@@ -62,17 +64,17 @@ class ProductsSearchDelegate extends SearchDelegate<dynamic> {
                   itemBuilder: (context, index) {
                     final productItem = results[index];
                     return ListTile(
-                        leading: CircleAvatar(
-                          child: Text('${index + 1}'),
-                        ),
-                        title: Text(productItem.product),
-                        trailing: Text(
-                          productItem.onHand,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Text(
-                            "Source: ${productItem.source} , Total: ${productItem.qty}, Exp: ${productItem.expDate}"),
-                     );
+                      leading: CircleAvatar(
+                        child: Text('${index + 1}'),
+                      ),
+                      title: Text(productItem.product),
+                      trailing: Text(
+                        productItem.onHand,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(
+                          "Source: ${productItem.source} , Total: ${productItem.qty}, Exp: ${productItem.expDate}"),
+                    );
                   },
                 ),
               ),
