@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:search_in_pharmacy/screens/home_page.dart';
+import 'package:search_in_pharmacy/services/locator.dart';
 
 void main() {
+  setupLocator();
   runApp(const MainApp());
 }
 
@@ -10,11 +13,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home: HomePage(),
     );
   }
 }
